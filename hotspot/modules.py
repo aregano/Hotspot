@@ -344,6 +344,7 @@ def compute_modules(Z_scores, min_gene_threshold=10, fdr_threshold=None, z_thres
             z_threshold = allZ[-1]+1
 
     # Compute the linkage matrix
+    dd = np.array(Z_scores.copy().values, copy=True) # Allow that dd stops being read-only
     dd = Z_scores.copy().values
     np.fill_diagonal(dd, 0)
     condensed = squareform(dd)*-1
